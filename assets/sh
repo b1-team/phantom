@@ -1,0 +1,3 @@
+{
+INFO.get_mut().unwrap().instruction = Vec::with_capacity(98);
+}
