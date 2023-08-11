@@ -1,6 +1,8 @@
 # phantom
 
-![logo](./assets/logo.png)
+<p align="center">
+  <img src="assets/logo.png">
+</p>
 
 **A memory-based evasion technique which makes shellcode invisible from process start to end.**
 
