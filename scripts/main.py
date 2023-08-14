@@ -42,7 +42,7 @@ buf += b"\x75\x05\xbb\x47\x13\x72\x6f\x6a\x00\x59\x41\x89"
 buf += b"\xda\xff\xd5\x63\x61\x6c\x63\x2e\x65\x78\x65\x00"
 
 # RC4 key
-key = b"\x3b\x21\xff\x41\xe3"
+key = b"\x62\x31\x6e\x68\x61\x63\x6b"
 
 
 def key_scheduling(key: bytes) -> list[int]:
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     ins += "{"
     for opcode in cur_op:
         ins += (
-            f"c.rva = {str(int(cur_offset[i], 16))};\n" + f"c.quota = {str(floor(len(opcode) / 2))};\n" + "INFO.get_mut().unwrap().instruction.push(c.clone());\n")
+            f"c.rva = {str(int(cur_offset[i], 16))};\n" + f"c.quota = {str(floor(len(opcode) / 2))};\n" + "INFO.instruction.push(c);\n")
         i += 1
     ins += "}"
     f = open("in", "w")
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     f.writelines(b)
     sh = ""
     sh += "{\n"
-    sh += "INFO.get_mut().unwrap().instruction = Vec::with_capacity(" + str(instrCount) + ");"
+    sh += "INFO.instruction = Vec::with_capacity(" + str(instrCount) + ");"
     sh += "\n}"
     f = open("sh", "w")
     f.write(sh)
